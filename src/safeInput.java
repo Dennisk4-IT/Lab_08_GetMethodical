@@ -84,6 +84,35 @@ public class safeInput {
             }
         }
     }
+
+    public static double getRangedDouble(Scanner pipe, String prompt, double low, double high) {
+        double retVal = 0;
+        boolean isValid = false;
+        do {
+            System.out.print("\n" + prompt + " [" + low + " - " + high + "]: ");
+            if (pipe.hasNextDouble()) {
+                retVal = pipe.nextDouble();
+                if (retVal >= low && retVal <= high) {
+                    isValid = true;
+                } else {
+                    System.out.println("Invalid input. Enter a number between " + low + " and " + high);
+                }
+            } else {
+                System.out.println("Invalid input. Please enter a double.");
+                pipe.next();
+            }
+        } while (!isValid);
+        pipe.nextLine();
+        return retVal;
+    }
+
+    public static void PrettyHeader (String title) {
+        String border = "=".repeat(title.length());
+        System.out.println(border);
+        System.out.println(title);
+        System.out.println(border);
+    }
+
 }
 
 

@@ -21,6 +21,12 @@ public class DevTest {
 
         String email = safeInput.getRegExString(in, "Enter a valid email", "^[\\w._%+-]+@[\\w.-]+\\.[a-zA-Z]{2,}$");
         System.out.println("You have entered a valid email: " + email);
+
+        double weight = safeInput.getRangedDouble(in, "Enter your weight", 30.0, 150.0);
+        System.out.println("Your weight is: " + weight);
+
+        System.out.println("Testing p method with different inputs:");
+        PrettyHeader.printHeader("Welcome!");
     }
 }
 
